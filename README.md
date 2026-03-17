@@ -44,7 +44,8 @@ API runs by default at `http://localhost:3000`. **Swagger docs**: [http://localh
 - **FX rates** are cached in Redis for `{FX_RATES_CACHE_TTL_SECONDS}` seconds (default 300). If the external API is down, **stale cache is served** to avoid failing conversions.
 - **Monetary arithmetic** uses **Decimal.js** (18 decimal places in calculation, 8 stored) to avoid floating-point drift.
 - **Trades and conversions** use **pessimistic row-level locking** so concurrent requests cannot double-spend.
-- **OTP** expires in **10 minutes**; **unverified users cannot access trading routes** (enforced by `EmailVerifiedGuard`).
+- **OTP** expires in **10 minutes**; **unverified users cannot access trading routes** (enforced by `EmailVerifiedGuard`). for test purposes, the OTP is hardcoded to `123456` in the `AuthService` class.
+- **Email verification** uses mailgun for sending emails, but for test purposes, the emails are not sent.
 - The **`reference`** field on `Transaction` is a **UUID** used as an **idempotency key** for safe retries.
 
 ---

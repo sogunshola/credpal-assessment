@@ -11,7 +11,6 @@ const env = {
   port: envVar.get('PORT').asInt() ?? 3000,
   synchronize: envVar.get('TYPEORM_SYNCHRONIZE').required().asBool(),
   dbLogging: envVar.get('DATABASE_LOGGING').asBool(),
-  docsPassword: envVar.get('DOCS_PASSWORD').required().asString(),
   redisUrl: envVar.get('REDIS_URL').required().asString(),
   mailgunApiKey: envVar.get('MAILGUN_API_KEY').required().asString(),
   mailgunDomain: envVar.get('MAILGUN_DOMAIN').required().asString(),
